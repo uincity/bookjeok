@@ -21,7 +21,8 @@
 - `/#archive` — 읽은 책 아카이브
 - 검색·필터·정렬·상세 모달은 페이지 내 동작하며 별도 URL 파라미터는 사용하지 않습니다.
 - 외부 도서 정보 링크는 각 모달의 **책 정보 보러 가기** 버튼을 통해 열립니다. 자체 API 엔드포인트는 없습니다.
-- 공개 프로덕션 URL: 아직 게시/배포되지 않아 없음.
+- 공개 웹페이지: https://uincity.github.io/bookjeok/
+- GitHub 저장소: https://github.com/uincity/bookjeok
 
 ## 데이터 모델 및 파일 구조
 
