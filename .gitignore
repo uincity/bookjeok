@@ -1,0 +1,3 @@
+# Source records and exported workspace archives are not part of the website.
+*.xlsx
+*.zip

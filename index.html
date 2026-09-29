@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="북적북적 독서모임이 함께 고른 책과 시간을 기록하는 작은 웹진. 지난 책장과 다음 대화를 위한 질문을 만나보세요.">
+  <title>북적북적 — 책 너머, 우리의 이야기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <div class="announcement"><span class="announcement-dot" aria-hidden="true"></span> 함께 읽고, 오래 이야기하는 독서모임 <span class="announcement-right">EST. JUL 2025 &nbsp;·&nbsp; ISSUE <span id="issue-number">015</span></span></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="북적북적 처음으로"><span class="brand-symbol" aria-hidden="true">✳</span><span>북적북적<span class="brand-period">.</span></span></a>
+    <nav class="main-nav" aria-label="주 메뉴"><a href="#about">모임 소개</a><a href="#upcoming">다음 모임</a><a href="#archive">읽은 책들</a></nav>
+    <a class="header-link" href="#archive">아카이브 보기 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="about" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A READING CLUB JOURNAL <span class="eyebrow-no">NO. 001 — <span id="hero-issue-number">015</span></span></div>
+        <h1 id="hero-title">책 너머,<br><em>우리의 이야기.</em></h1>
+        <p class="hero-description">한 권의 책에서 시작된 수많은 이야기.<br>우리가 함께 읽고, 묻고, 나누었던 시간을 기록합니다.</p>
+        <a class="round-link" href="#archive"><span class="round-link-icon" aria-hidden="true">↘</span><span>함께 읽은 책 살펴보기</span></a>
+        <div class="hero-footnote">BOOKJEOK BOOKJEOK <span>—</span> READING TOGETHER, THINKING FURTHER</div>
+      </div>
+      <div class="hero-art" aria-label="북적북적에서 읽은 책 표지 콜라주">
+        <div class="art-topline"><span>THE BOOKS WE SHARED</span><span>2025 — 2026</span></div>
+        <div class="hero-orbit" aria-hidden="true"></div>
+        <img class="hero-book hero-book-one" src="images/book-01.jpg" alt="" width="500" height="741">
+        <img class="hero-book hero-book-two" src="images/book-11.jpg" alt="" width="500" height="741">
+        <img class="hero-book hero-book-three" src="images/book-14.jpg" alt="" width="500" height="716">
+        <span class="art-stamp" aria-hidden="true">READ<br>&amp;<br>REPEAT <span>✳</span></span>
+        <div class="art-bottomline"><span>WORDS CONNECT US</span><span>↗</span></div>
+      </div>
+    </section>
+
+    <section class="intro-band" aria-label="북적북적 숫자로 보기"><div class="intro-note"><span class="sparkle" aria-hidden="true">✳</span><p>한 권씩, 한 걸음씩.<br><strong>우리만의 독서 지도를 그려갑니다.</strong></p></div><div class="stat"><strong><span id="selected-count">15</span><span>권</span></strong><small>함께 고른 책</small></div><div class="stat"><strong><span id="completed-count">14</span><span>번</span></strong><small>기록된 모임</small></div><div class="stat"><strong>2025<span>—</span></strong><small>이야기의 시작</small></div></section>
+
+    <section class="upcoming-section section-shell" id="upcoming" aria-labelledby="upcoming-title">
+      <div class="section-heading"><div><span class="section-label">01 / COMING UP NEXT</span><h2 id="upcoming-title">다음 장을 펼칠 시간<span class="heading-mark">✳</span></h2></div><p id="upcoming-intro">이번에는 어떤 이야기가 기다리고 있을까요?</p></div>
+      <article class="upcoming-feature" id="upcoming-feature">
+        <div class="feature-copy"><span class="feature-kicker"><span class="live-dot"></span> NEXT READ · 15번째 모임</span><p class="feature-date">2026. 09. 30. <span>WEDNESDAY</span></p><h3>존중받지 못하는<br>자들을 위한 정치학</h3><p class="feature-author">프랜시스 후쿠야마 <span>지음</span></p><div class="feature-rule"></div><div class="feature-meta"><span>이번 모임의 진행자</span><strong>박은지</strong></div><button class="feature-button" type="button" data-book="15">이 책 자세히 보기 <span aria-hidden="true">↗</span></button></div>
+        <div class="feature-visual"><span class="feature-background-type" aria-hidden="true">NEXT<br>CHAPTER</span><span class="feature-outline" aria-hidden="true"></span><img src="images/book-15.jpg" alt="『존중받지 못하는 자들을 위한 정치학』 책 표지" width="500" height="741"><span class="feature-visual-caption">BOOKJEOK BOOKJEOK<br>READING CLUB VOL. 15</span></div>
+      </article>
+      <div class="upcoming-empty" id="upcoming-empty" hidden><span class="section-label">THE NEXT CHAPTER</span><h3 id="upcoming-empty-title">다음 모임을 준비 중입니다.</h3><p id="upcoming-empty-description">새 일정이 정해지면 이곳에서 소개할게요.</p><a href="#archive">지난 책장 둘러보기 <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="editorial-section section-shell" id="journal" aria-labelledby="journal-title">
+      <div class="section-heading"><div><span class="section-label">02 / FROM THE JOURNAL</span><h2 id="journal-title">책장 사이에 남은 질문<span class="heading-mark">✳</span></h2></div><p>세 권의 제목에서 다음 대화를 위한 질문을 꺼냈습니다.</p></div>
+      <article class="editorial-feature">
+        <div class="editorial-copy"><span class="editorial-kicker">EDITOR'S NOTE · 2026</span><h3>서로 다른 책을 읽고,<br><em>같은 자리에서 묻습니다.</em></h3><p>삶을 돌아보는 책부터 먼 세계를 상상하는 이야기까지. 북적북적의 책장에는 서로 다른 시선이 나란히 놓여 있습니다. 세 권의 제목에서 출발한 질문을 적어 봅니다.</p><a href="#archive">모든 책 살펴보기 <span aria-hidden="true">↗</span></a></div>
+        <div class="editorial-questions"><p>THREE QUESTIONS FROM OUR SHELF</p><ol><li><button type="button" data-book="1"><span>01 / 어떻게 죽을 것인가</span><strong>좋은 삶을 말할 때, 마지막 순간은 어떻게 생각해야 할까요?</strong><span class="editorial-arrow" aria-hidden="true">↗</span></button></li><li><button type="button" data-book="3"><span>02 / 종이동물원</span><strong>가까운 사람의 이야기를 우리는 얼마나 오래 기억할까요?</strong><span class="editorial-arrow" aria-hidden="true">↗</span></button></li><li><button type="button" data-book="14"><span>03 / 프로젝트 헤일메리</span><strong>혼자 풀기 어려운 문제 앞에서 누구와 손을 잡을까요?</strong><span class="editorial-arrow" aria-hidden="true">↗</span></button></li></ol></div>
+      </article>
+    </section>
+
+    <section class="archive-section section-shell" id="archive" aria-labelledby="archive-title">
+      <div class="section-heading archive-heading"><div><span class="section-label">03 / THE READING ARCHIVE</span><h2 id="archive-title">우리가 함께 읽은 책들<span class="heading-mark">✳</span></h2></div><p>지난 책장 속 이야기를 다시 꺼내 봅니다.</p></div>
+      <div class="archive-toolbar"><div class="filter-group" id="year-filters" role="group" aria-label="연도 필터"><button type="button" class="filter-button active" data-year="all" aria-pressed="true">전체 <span>14</span></button><button type="button" class="filter-button" data-year="2026" aria-pressed="false">2026</button><button type="button" class="filter-button" data-year="2025" aria-pressed="false">2025</button></div><div class="toolbar-actions"><label class="search-field"><span class="sr-only">책 제목, 저자 또는 진행자 검색</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="m15.5 15.5 5 5"></path></svg><input id="book-search" type="search" placeholder="책, 저자, 진행자 검색" autocomplete="off"></label><button id="sort-button" class="sort-button" type="button" aria-label="현재 최신순, 클릭하여 정렬 변경">최신순 <span aria-hidden="true">↓</span></button></div></div>
+      <p id="result-count" class="result-count" aria-live="polite"></p>
+      <div id="book-grid" class="book-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">✳</span><h3>찾으시는 책이 없어요.</h3><p>다른 검색어를 입력하거나 필터를 바꿔보세요.</p><button type="button" id="reset-button">전체 책 보기 ↗</button></div>
+    </section>
+
+    <section class="closing-section" aria-labelledby="closing-title"><div class="closing-inner"><span class="section-label">THE STORY CONTINUES</span><h2 id="closing-title">좋은 책은 끝나도,<br><em>좋은 대화는 계속되니까.</em></h2><p>다음 책장에서 또 만나요.</p><a href="#top">맨 위로 돌아가기 <span aria-hidden="true">↗</span></a><span class="closing-star" aria-hidden="true">✳</span></div></section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-symbol" aria-hidden="true">✳</span><span>북적북적<span class="brand-period">.</span></span></a><p>읽고, 나누고, 오래 기억하기.</p><span>© <span id="copyright-year">2026</span> BOOKJEOK BOOKJEOK</span></footer>
+
+  <dialog id="book-dialog" class="book-dialog" aria-labelledby="dialog-title"><button type="button" class="dialog-close" aria-label="닫기">✕</button><div id="dialog-content"></div></dialog>
+</body>
+</html>
