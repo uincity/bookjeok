@@ -45,3 +45,39 @@
 @media (max-width:760px){.editorial-section{padding-bottom:80px}.editorial-feature{grid-template-columns:1fr}.editorial-copy{padding:35px 0 38px}.editorial-questions{padding:30px}.upcoming-empty{min-height:270px;padding:42px 30px}}
 @media (max-width:540px){.hero-footnote{white-space:normal;font-size:10px;line-height:1.6}.announcement,.art-topline,.art-bottomline{font-size:10px}.main-nav a{font-size:11px}.stat small{font-size:11px}.section-label{font-size:11px}.filter-button{padding:10px 0;font-size:12px}.search-field input,.sort-button{font-size:12px}.book-meta{font-size:11px}.book-author{font-size:12px}.book-card-footer,.book-card-footer strong{font-size:11px}.book-card-footer span{max-width:55%}.feature-visual-caption{font-size:9px}.site-footer>span{font-size:10px}.editorial-section{padding-bottom:72px}.editorial-copy h3{font-size:30px}.editorial-copy>p{font-size:13px}.editorial-questions{padding:25px 22px}.editorial-questions button strong{font-size:16px}.upcoming-empty{padding:36px 24px}}
 @media (max-width:360px){.hero h1{font-size:44px}}
+
+/* Put the club name first in the opening spread. */
+.site-header .brand{font-size:28px}
+.hero .hero-title{
+  margin:32px 0 0;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:clamp(72px,8vw,116px);
+  font-weight:800;
+  line-height:1.13;
+  letter-spacing:-.09em;
+  white-space:nowrap;
+}
+.hero-title-mark{color:var(--accent-ink);letter-spacing:-.03em}
+.hero-tagline{
+  margin:13px 0 20px;
+  font:400 clamp(30px,2.8vw,42px)/1.4 'Gowun Batang',serif;
+  letter-spacing:-.06em;
+  word-break:keep-all;
+}
+.hero-tagline em{font-style:normal;color:var(--accent-ink)}
+@media (min-width:761px) and (max-width:1000px){
+  .hero .hero-title{font-size:clamp(68px,7vw,88px)}
+  .hero-tagline{font-size:clamp(28px,3vw,34px)}
+}
+@media (max-width:760px){
+  .site-header .brand{font-size:25px}
+  .hero .hero-title{font-size:clamp(64px,11vw,84px);margin-top:28px}
+  .hero-tagline{font-size:clamp(30px,5vw,37px);margin:12px 0 18px}
+}
+@media (max-width:540px){
+  .site-header .brand{font-size:24px}
+  .hero .hero-title{font-size:clamp(58px,13.5vw,70px)}
+  .hero-tagline{font-size:30px}
+  .hero-description{font-size:13px}
+}
+@media (max-width:360px){.hero .hero-title{font-size:56px}}
