@@ -1,0 +1,103 @@
+.journal-site-header{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px max(5.2vw,22px);border-bottom:1px solid var(--line)}
+.journal-site-header>a:last-child{font-size:12px;font-weight:700;border-bottom:1px solid var(--ink);padding:10px 0}
+.journal-site-header>a:last-child span{margin-left:14px}
+.journal-hero{max-width:1600px;margin:0 auto}
+.breadcrumbs{display:flex;align-items:center;gap:11px;padding:24px max(8.1vw,32px);color:var(--readable);font-size:12px}
+.breadcrumbs a{text-decoration:underline;text-decoration-color:#b9bdb3;text-underline-offset:4px}
+.breadcrumbs a:hover{color:var(--accent-ink)}
+.journal-hero-grid{display:grid;grid-template-columns:minmax(0,1.23fr) minmax(290px,.77fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.journal-hero-copy{padding:68px 9% 64px max(8.1vw,32px);min-width:0}
+.journal-hero-copy h1{font:700 clamp(38px,4.4vw,66px)/1.33 'Gowun Batang',serif;letter-spacing:-.07em;word-break:keep-all;margin:24px 0 23px}
+.journal-lead{font-size:17px;line-height:1.9;color:#465649;max-width:660px;word-break:keep-all}
+.journal-hero-meta{display:flex;flex-wrap:wrap;gap:10px 23px;border-top:1px solid var(--line);padding-top:20px;margin:36px 0 20px;color:var(--readable);font-size:13px}
+.journal-hero-meta span+span:before{content:'·';margin-right:22px;color:var(--accent-ink)}
+.journal-tags{display:flex;flex-wrap:wrap;gap:8px}
+.journal-tags span{border:1px solid #bfc7b9;border-radius:20px;padding:6px 12px;color:#415247;font-size:12px;font-weight:600}
+.journal-hero-cover{background:#d9dacf;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:45px 25px;min-height:510px}
+.journal-hero-cover img{width:min(57%,260px);height:auto;box-shadow:16px 23px 30px #273c3240;transform:rotate(-5deg);border:4px solid #fff}
+.journal-hero-cover>span{font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.13em;color:#3d5444}
+.journal-body{max-width:930px;margin:0 auto;padding:92px 32px 110px}
+.journal-body>section{border-top:1px solid var(--line);padding:54px 0 70px}
+.journal-body h2{font-size:clamp(29px,3.2vw,39px);line-height:1.38;letter-spacing:-.07em;margin:11px 0 23px}
+.journal-body p,.journal-body li{font-size:17px;line-height:1.9;word-break:keep-all}
+.journal-body p{margin:0}
+.section-explainer{color:var(--readable);margin-bottom:22px!important}
+.summary-section ol{list-style:none;padding:0;margin:30px 0 0;border-top:1px solid var(--ink)}
+.summary-section li{display:grid;grid-template-columns:58px 1fr;gap:18px;border-bottom:1px solid var(--line);padding:19px 0}
+.summary-section li span{font:600 14px 'IBM Plex Mono',monospace;color:var(--accent-ink);padding-top:6px}
+.journal-question{padding:33px 0;border-bottom:1px solid var(--line)}
+.journal-question-number{font:600 11px 'IBM Plex Mono',monospace;color:var(--accent-ink);letter-spacing:.1em}
+.journal-question h3{font:700 clamp(23px,2.3vw,29px)/1.45 'Gowun Batang',serif;letter-spacing:-.045em;margin:9px 0 15px;word-break:keep-all}
+.journal-question p{color:#344338}
+.source-details{margin-top:24px;color:var(--readable);font-size:13px}
+.source-details summary{cursor:pointer;min-height:44px;padding:11px 0;font-size:13px;font-weight:700}
+.source-details ol{padding-left:20px;margin:4px 0 10px}
+.source-details li,.source-details p{font-size:13px;line-height:1.7}
+.view-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:29px 0 25px}
+.view-card{background:#e9e4d9;padding:26px 25px 29px}
+.view-card span{font:600 13px 'IBM Plex Mono',monospace;color:var(--accent-ink)}
+.view-card p{margin-top:12px}
+.side-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.side-grid article{border-top:1px solid var(--ink);padding-top:15px}
+.side-grid h3{font-size:18px;letter-spacing:-.05em;margin:0 0 9px}
+.side-grid p{font-size:15px;color:#455448}
+.remaining-section{background:#e9e4d9;border:0!important;padding:48px 40px 58px!important;margin:0 -40px 70px}
+.remaining-section ul{list-style:none;padding:0;margin:27px 0 0}
+.remaining-section li{padding:13px 0 13px 22px;border-top:1px solid #cdc9bc;position:relative}
+.remaining-section li:before{content:'✳';position:absolute;left:0;color:var(--accent-ink);font-size:13px}
+.next-section{background:var(--forest);color:#fff;border:0!important;padding:48px 42px 55px!important;margin:0 -42px 70px}
+.next-section .section-label{color:#e8b29a}
+.next-section>p{color:#dce5dc}
+.next-book-row{display:flex;justify-content:space-between;align-items:end;gap:25px;border-top:1px solid #708475;margin-top:32px;padding-top:24px}
+.next-book-row div{display:flex;flex-direction:column;gap:8px}
+.next-book-row strong{font:700 27px 'Gowun Batang',serif;letter-spacing:-.05em}
+.next-book-row div span{font-size:13px;color:#dce5dc}
+.next-book-row a{display:inline-flex;align-items:center;gap:16px;min-height:44px;padding:10px 0;border-bottom:1px solid #e8b29a;font-size:13px;font-weight:700;white-space:nowrap}
+.pdf-section{padding-bottom:20px!important}
+.journal-pdf-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:29px}
+.journal-pdf-actions a{min-height:48px;display:inline-flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 18px;border:1px solid var(--forest);font-size:13px;font-weight:700}
+.journal-pdf-actions a:first-child{background:var(--forest);color:white}
+.journal-pdf-actions a:hover{background:#48614e;color:white}
+.journal-body .pdf-meta{font-size:12px;color:var(--readable);margin-top:12px}
+.journal-body .editorial-note{border-top:1px solid var(--line);padding-top:23px;margin-top:35px;font-size:14px;color:var(--readable)}
+.pdf-unavailable{color:var(--readable);margin-top:25px!important}
+.journal-adjacent{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:25px}
+.journal-adjacent a{font-size:13px;text-decoration:underline;text-underline-offset:4px}
+.journal-footer{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:35px max(8.1vw,32px)}
+.journal-footer .brand{font-size:21px}
+.journal-footer>a:last-child{font-size:12px;font-weight:700}
+@media(max-width:760px){
+  .journal-hero-grid{grid-template-columns:1fr}
+  .journal-hero-copy{padding:42px 25px 45px}
+  .journal-hero-copy h1{font-size:clamp(35px,7vw,48px)}
+  .journal-hero-cover{min-height:300px;padding:38px 20px}
+  .journal-hero-cover img{width:min(35%,190px)}
+  .breadcrumbs{padding:20px 25px}
+  .journal-body{padding:65px 25px 85px}
+  .remaining-section,.next-section{margin-left:0;margin-right:0}
+}
+@media(max-width:540px){
+  .journal-site-header{min-height:66px;padding:13px 20px}
+  .journal-site-header .brand{font-size:23px}
+  .journal-site-header>a:last-child{font-size:11px}
+  .journal-hero-copy{padding:36px 22px 42px}
+  .journal-hero-copy h1{font-size:35px;margin:18px 0}
+  .journal-lead{font-size:16px}
+  .journal-hero-meta{font-size:12px;gap:7px 12px}
+  .journal-hero-meta span+span:before{margin-right:12px}
+  .journal-hero-cover{min-height:265px}
+  .journal-hero-cover img{width:130px}
+  .breadcrumbs{padding:17px 22px;font-size:11px;gap:8px}
+  .journal-body{padding:53px 22px 70px}
+  .journal-body>section{padding:42px 0 56px}
+  .journal-body h2{font-size:30px}
+  .journal-body p,.journal-body li{font-size:16px}
+  .summary-section li{grid-template-columns:37px 1fr;gap:10px}
+  .view-grid,.side-grid{grid-template-columns:1fr}
+  .side-grid{gap:25px}
+  .remaining-section,.next-section{padding:36px 22px 43px!important;margin:0 0 55px}
+  .next-book-row{align-items:start;flex-direction:column}
+  .journal-pdf-actions{flex-direction:column}
+  .journal-pdf-actions a{width:100%}
+  .journal-footer{padding:29px 22px;flex-wrap:wrap}
+}

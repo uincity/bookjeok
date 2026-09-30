@@ -1,23 +1,4 @@
-// 독서모임 기록: 새 모임을 추가할 때 아래 배열에 책 정보를 한 항목 더 넣으면 됩니다.
-const books = [
-  { no: 1, date: '2025.07.16.', title: '어떻게 죽을 것인가', author: '아툴 가완디', host: 'J.M.C', cover: 'images/book-01.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=59964079' },
-  { no: 2, date: '2025.08.20.', title: '곰스크로 가는 기차', author: '프리츠 오르트만', host: 'P.M.S', cover: 'images/book-02.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=173768726' },
-  { no: 3, date: '2025.09.24.', title: '종이동물원', author: '켄 리우', host: 'K.I.H', cover: 'images/book-03.jpg', source: 'https://goldenbough.minumsa.com/book/2641/' },
-  { no: 4, date: '2025.10.29.', title: '그녀를 지키다', author: '장바티스트 앙드레아', host: 'P.E.J', cover: 'images/book-04.jpg', source: 'https://www.yes24.com/product/goods/143753016' },
-  { no: 5, date: '2025.12.10.', title: '넥서스', author: '유발 노아 하라리', host: 'K.B.N.R', cover: 'images/book-05.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=349172323' },
-  { no: 6, date: '2025.12.30.', title: '고맙습니다', author: '올리버 색스', host: 'J.D.S', cover: 'images/book-06.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=84012438' },
-  { no: 7, date: '2026.01.21.', title: '불안', author: '알랭 드 보통', host: 'H.B.R', cover: 'images/book-07.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=248825061' },
-  { no: 8, date: '2026.02.25.', title: 'I의 비극', author: '요네자와 호노부', host: 'M.J.H', cover: 'images/book-08.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=336431851' },
-  { no: 9, date: '2026.03.25.', title: '이병한의 아메리카 탐문', author: '이병한', host: 'J.M.C', cover: 'images/book-09.jpg', source: 'https://www.yes24.com/product/goods/149659712' },
-  { no: 10, date: '2026.04.22.', title: '인간은 무엇으로 사는가', author: '레프 톨스토이', host: 'P.M.S', cover: 'images/book-10.jpg', source: 'https://minumsa.minumsa.com/book/35430/', note: '표지 이미지는 「사람은 무엇으로 사는가」 판본입니다. 모임 기록의 제목은 제공해주신 내용 그대로 표기했습니다.' },
-  { no: 11, date: '2026.05.20.', title: '대온실 수리 보고서', author: '김금희', host: 'P.E.J', cover: 'images/book-11.jpg', source: 'https://www.changbi.com/BookDetail?bookid=4442' },
-  { no: 12, date: '2026.06.18.', title: '설자은, 금성으로 돌아오다', author: '정세랑', host: 'J.D.S', cover: 'images/book-12.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=326492603' },
-  { no: 13, date: '2026.07.22.', title: '인어 사냥', author: '차인표', host: 'K.B.N.R', cover: 'images/book-13.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=302751355' },
-  { no: 14, date: '2026.08.26.', title: '프로젝트 헤일메리', author: '앤디 위어', host: 'P.C.S', cover: 'images/book-14.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=271229410' },
-  { no: 15, date: '2026.09.30.', title: '존중받지 못하는 자들을 위한 정치학', author: '프랜시스 후쿠야마', host: 'P.E.J', cover: 'images/book-15.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=237694997' },
-  { no: 16, date: '2026.10.28.', title: '다섯 개의 초대장', author: '프랭크 오스타세스키', host: 'J.M.C', cover: 'images/book-16.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=235784926', upcoming: true }
-];
-
+// Book records are loaded from js/books.js before this script.
 const grid = document.querySelector('#book-grid');
 const resultCount = document.querySelector('#result-count');
 const emptyState = document.querySelector('#empty-state');
@@ -27,9 +8,12 @@ const dialog = document.querySelector('#book-dialog');
 const yearFilters = document.querySelector('#year-filters');
 const upcomingFeature = document.querySelector('#upcoming-feature');
 const upcomingEmpty = document.querySelector('#upcoming-empty');
+const discussionOnly = document.querySelector('#discussion-only');
+const journalContent = document.querySelector('#journal-content');
 let selectedYear = 'all';
 let newestFirst = true;
 let currentDay = '';
+let discussionByBook = new Map();
 const coverColors = ['#e5e7de','#e9e3d7','#e0e5dc','#e9e0d9','#e4e2d8','#dedfd6','#e9e1d6','#e2e3db'];
 
 function dateKey(book) {
@@ -108,22 +92,92 @@ function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 }
 
+function discussionHref(discussion) {
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(discussion.slug)
+    ? `journal/${discussion.slug}/index.html` : null;
+}
+
+function discussionPdfHref(discussion) {
+  const pdf = discussion.pdf;
+  return pdf?.status === 'available' && /^assets\/discussions\/[a-z0-9-]+\.pdf$/.test(pdf.path)
+    ? pdf.path : null;
+}
+
+function discussionSearchText(discussion) {
+  if (!discussion) return '';
+  return [discussion.editorialTitle, discussion.keyQuestion, discussion.intro,
+    ...discussion.tags, ...discussion.summary,
+    ...discussion.questions.flatMap(question => [question.title, question.body]),
+    ...discussion.differentViews.flatMap(view => [view.speaker, view.body]),
+    ...discussion.sideStories.flatMap(story => [story.title, story.body]),
+    ...discussion.remainingQuestions, discussion.nextBookTransition]
+    .join(' ').toLocaleLowerCase();
+}
+
+function renderJournal() {
+  const published = [...discussionByBook.values()].sort((a, b) => b.meetingDate.localeCompare(a.meetingDate));
+  document.querySelector('#journal-count').textContent = `공개된 대화 기록 ${published.length}건`;
+  if (!published.length) {
+    journalContent.innerHTML = '<p class="journal-loading">공개된 대화 기록이 아직 없습니다.</p>';
+    return;
+  }
+  const latest = published[0];
+  const book = books.find(item => item.no === latest.meetingNo);
+  const href = discussionHref(latest);
+  journalContent.innerHTML = `<article class="journal-feature">
+    <div class="journal-feature-copy"><span class="editorial-kicker">VOL. ${String(latest.meetingNo).padStart(2, '0')} · ${escapeHTML(latest.meetingDate)} · ${escapeHTML(book.title)}</span>
+      <h3>${escapeHTML(latest.editorialTitle)}</h3><p>${escapeHTML(latest.intro)}</p>
+      <div class="journal-tags" aria-label="대화 주제">${latest.tags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('')}</div>
+      <a class="journal-read-link" href="${href}">그날의 대화 읽기 <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="journal-feature-art"><img src="${escapeHTML(book.cover)}" alt="${escapeHTML(book.title)} 책 표지" width="500" height="741" loading="lazy">
+      <p>${escapeHTML(latest.keyQuestion)}</p><span>BOOKJEOK BOOKJEOK · READING JOURNAL</span>
+    </div>
+  </article>${published.length > 1 ? `<div class="journal-more">${published.slice(1, 3).map(discussion => {
+    const linkedBook = books.find(item => item.no === discussion.meetingNo);
+    return `<article><span>${escapeHTML(discussion.meetingDate)} · ${escapeHTML(linkedBook.title)}</span><h3>${escapeHTML(discussion.editorialTitle)}</h3><a href="${discussionHref(discussion)}">대화 기록 읽기 →</a></article>`;
+  }).join('')}</div>` : ''}`;
+}
+
+async function loadDiscussions() {
+  try {
+    const response = await fetch('data/discussions.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const records = await response.json();
+    discussionByBook = new Map(records.filter(record => record.status === 'published'
+      && discussionHref(record) && books.some(book => book.no === record.meetingNo))
+      .map(record => [record.meetingNo, record]));
+    renderJournal();
+    renderBooks();
+  } catch (error) {
+    document.querySelector('#journal-count').textContent = '대화 기록을 불러오지 못했습니다.';
+    journalContent.innerHTML = '<p class="journal-loading">대화 기록을 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.</p>';
+    console.warn('Discussion records unavailable:', error);
+  }
+}
+
 function cardMarkup(book) {
   const number = String(book.no).padStart(2, '0');
+  const discussion = discussionByBook.get(book.no);
   return `<article class="book-card">
     <button class="book-cover-button" type="button" data-book="${book.no}" aria-label="${escapeHTML(book.title)} 자세히 보기" style="background:${coverColors[(book.no - 1) % coverColors.length]}">
-      <span class="card-index">NO. ${number}</span><img src="${book.cover}" alt="${escapeHTML(book.title)} 책 표지" loading="lazy" width="500" height="740"><span class="card-arrow" aria-hidden="true">↗</span>
+      <span class="card-index">NO. ${number}</span>${discussion ? '<span class="card-discussion-badge">대화 기록</span>' : ''}<img src="${escapeHTML(book.cover)}" alt="${escapeHTML(book.title)} 책 표지" loading="lazy" width="500" height="740"><span class="card-arrow" aria-hidden="true">↗</span>
     </button>
     <p class="book-meta">${book.date} <span>·</span> VOL. ${number}</p>
     <button class="book-title" type="button" data-book="${book.no}">${escapeHTML(book.title)}</button>
     <p class="book-author">${escapeHTML(book.author)} 지음</p>
+    ${discussion ? `<p class="book-discussion-question">${escapeHTML(discussion.keyQuestion)}</p><a class="book-discussion-link" href="${discussionHref(discussion)}">대화 기록 읽기 <span aria-hidden="true">→</span></a>` : ''}
     <div class="book-card-footer"><span>이야기를 이끈 사람</span><strong>${escapeHTML(book.host)}</strong></div>
   </article>`;
 }
 
 function renderBooks() {
   const term = searchInput.value.trim().toLocaleLowerCase();
-  const matching = completedBooks().filter(book => (selectedYear === 'all' || book.date.startsWith(selectedYear)) && [book.title, book.author, book.host].some(value => value.toLocaleLowerCase().includes(term)));
+  const matching = completedBooks().filter(book =>
+    (selectedYear === 'all' || book.date.startsWith(selectedYear))
+    && (!discussionOnly.checked || discussionByBook.has(book.no))
+    && (!term || [book.title, book.author, book.host].some(value => value.toLocaleLowerCase().includes(term))
+      || discussionSearchText(discussionByBook.get(book.no)).includes(term)));
   matching.sort((a, b) => newestFirst ? b.no - a.no : a.no - b.no);
   grid.innerHTML = matching.map(cardMarkup).join('');
   resultCount.textContent = `${matching.length}권의 책`;
@@ -135,13 +189,16 @@ function openBook(no) {
   if (!book) return;
   const number = String(book.no).padStart(2, '0');
   const isUpcoming = book.upcoming && dateKey(book) >= seoulDayKey();
+  const discussion = discussionByBook.get(book.no);
+  const pdfHref = discussion && discussionPdfHref(discussion);
   document.querySelector('#dialog-content').innerHTML = `<div class="dialog-layout">
-    <div class="dialog-image"><img src="${book.cover}" alt="${escapeHTML(book.title)} 책 표지" width="500" height="740"></div>
+    <div class="dialog-image"><img src="${escapeHTML(book.cover)}" alt="${escapeHTML(book.title)} 책 표지" width="500" height="740"></div>
     <div class="dialog-info"><span class="dialog-kicker">BOOKJEOK BOOKJEOK · VOL. ${number}${isUpcoming ? ' · NEXT READ' : ''}</span>
       <h2 id="dialog-title">${escapeHTML(book.title)}</h2><p class="dialog-author">${escapeHTML(book.author)} 지음</p>
       <dl><div><dt>모임 날짜</dt><dd>${book.date}${isUpcoming ? ' (예정)' : ''}</dd></div><div><dt>발제자 · 진행자</dt><dd>${escapeHTML(book.host)}</dd></div><div><dt>모임 순번</dt><dd>${number}번째 책</dd></div></dl>
       ${book.note ? `<p class="dialog-note">${escapeHTML(book.note)}</p>` : ''}
-      <a class="dialog-source" href="${book.source}" target="_blank" rel="noopener noreferrer">책 정보 보러 가기 <span aria-hidden="true">↗</span></a>
+      ${discussion ? `<div class="dialog-discussion"><span>그날의 대화</span><p>${escapeHTML(discussion.intro)}</p><a class="dialog-discussion-primary" href="${discussionHref(discussion)}">그날의 대화 읽기 →</a>${pdfHref ? `<a class="dialog-discussion-pdf" href="${pdfHref}" target="_blank" rel="noopener noreferrer" aria-label="전체 기록 PDF 새 탭에서 열기">전체 기록 PDF ↗ <span>새 탭</span></a>` : ''}</div>` : ''}
+      <a class="dialog-source" href="${escapeHTML(book.source)}" target="_blank" rel="noopener noreferrer">책 정보 보러 가기 <span aria-hidden="true">↗</span></a>
     </div></div>`;
   dialog.showModal();
 }
@@ -154,6 +211,7 @@ yearFilters.addEventListener('click', event => {
   renderBooks();
 });
 searchInput.addEventListener('input', renderBooks);
+discussionOnly.addEventListener('change', renderBooks);
 sortButton.addEventListener('click', () => {
   newestFirst = !newestFirst;
   sortButton.innerHTML = `${newestFirst ? '최신순' : '오래된순'} <span aria-hidden="true">${newestFirst ? '↓' : '↑'}</span>`;
@@ -162,6 +220,7 @@ sortButton.addEventListener('click', () => {
 });
 document.querySelector('#reset-button').addEventListener('click', () => {
   searchInput.value = '';
+  discussionOnly.checked = false;
   document.querySelector('[data-year="all"]').click();
 });
 document.addEventListener('click', event => {
@@ -171,4 +230,8 @@ document.addEventListener('click', event => {
 dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 updateSchedule();
+loadDiscussions().finally(() => {
+  const requestedBook = Number(new URLSearchParams(location.search).get('book'));
+  if (Number.isSafeInteger(requestedBook) && books.some(book => book.no === requestedBook)) openBook(requestedBook);
+});
 setInterval(() => { if (seoulDayKey() !== currentDay) updateSchedule(); }, 60_000);

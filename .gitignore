@@ -1,3 +1,5 @@
 # Source records and exported workspace archives are not part of the website.
 *.xlsx
 *.zip
+doc/
+bookjeok_discussion_archive_codex_prompt.md
