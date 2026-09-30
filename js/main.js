@@ -14,7 +14,8 @@ const books = [
   { no: 12, date: '2026.06.18.', title: '설자은, 금성으로 돌아오다', author: '정세랑', host: 'J.D.S', cover: 'images/book-12.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=326492603' },
   { no: 13, date: '2026.07.22.', title: '인어 사냥', author: '차인표', host: 'K.B.N.R', cover: 'images/book-13.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=302751355' },
   { no: 14, date: '2026.08.26.', title: '프로젝트 헤일메리', author: '앤디 위어', host: 'P.C.S', cover: 'images/book-14.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=271229410' },
-  { no: 15, date: '2026.09.30.', title: '존중받지 못하는 자들을 위한 정치학', author: '프랜시스 후쿠야마', host: 'P.E.J', cover: 'images/book-15.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=237694997', upcoming: true }
+  { no: 15, date: '2026.09.30.', title: '존중받지 못하는 자들을 위한 정치학', author: '프랜시스 후쿠야마', host: 'P.E.J', cover: 'images/book-15.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=237694997' },
+  { no: 16, date: '2026.10.28.', title: '다섯 개의 초대장', author: '프랭크 오스타세스키', host: 'J.M.C', cover: 'images/book-16.jpg', source: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=235784926', upcoming: true }
 ];
 
 const grid = document.querySelector('#book-grid');
