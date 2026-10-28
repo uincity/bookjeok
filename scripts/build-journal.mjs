@@ -65,6 +65,20 @@ function render(record, index) {
     <a href="../../${e(pdf.path)}" download="${e(pdf.path.split('/').at(-1))}">PDF 다운로드 <span aria-hidden="true">↓</span></a>
   </div><p class="pdf-meta">원본 ${pdf.pageCount}쪽 · ${Math.round(pdf.sizeBytes / 1024)}KB</p>`
     : '<p class="pdf-unavailable">원본 PDF는 아직 공개되지 않았습니다.</p>';
+  if (record.sketch) {
+    const sketchFile = join(root, record.sketch.path);
+    if (!existsSync(sketchFile)) throw new Error(`Sketch image not found: ${record.sketch.path}`);
+  }
+  const sketchSection = record.sketch ? `<section class="sketch-section" aria-labelledby="sketch-title">
+          <span class="section-label">SCENE / THAT DAY</span>
+          <h2 id="sketch-title">그날의 스케치</h2>
+          <figure class="sketch-figure">
+            <div class="sketch-image-wrapper">
+              <img src="../../${e(record.sketch.path)}" alt="${e(record.sketch.alt || '모임 현장 스케치')}" width="1400" height="1050" loading="lazy">
+            </div>
+            ${record.sketch.caption ? `<figcaption><span>${e(record.sketch.label || `MOMENT · ${pageDate}`)}</span><p>${e(record.sketch.caption)}</p></figcaption>` : ''}
+          </figure>
+        </section>` : '';
   const nextSection = nextBook ? `<section class="next-section" aria-labelledby="next-title"><span class="section-label">06 / THE NEXT BOOK</span><h2 id="next-title">다음 책으로 이어지는 대화</h2><p>${e(record.nextBookTransition)}</p><div class="next-book-row"><div><strong>${e(nextBook.title)}</strong><span>${e(nextBook.author)} · ${e(nextBook.date)} 예정 · 진행 ${e(nextBook.host)}</span></div><a href="../../index.html?book=${nextBook.no}">다음 책 살펴보기 <span aria-hidden="true">↗</span></a></div></section>` : '';
   const adjacentLinks = adjacent.length ? `<nav class="journal-adjacent" aria-label="다른 대화 기록">${adjacent.map(other =>
     `<a href="../${e(other.slug)}/index.html">${e(other.meetingNo)}번째 대화 · ${e(other.editorialTitle)} →</a>`).join('')}</nav>` : '';
@@ -103,6 +117,7 @@ function render(record, index) {
       </header>
       <div class="journal-body">
         <section class="summary-section" aria-labelledby="summary-title"><span class="section-label">01 / THE CONVERSATION</span><h2 id="summary-title">그날의 대화, 세 줄로</h2><ol>${summary}</ol></section>
+        ${sketchSection}
         <section class="questions-section" aria-labelledby="questions-title"><span class="section-label">02 / QUESTIONS WE SHARED</span><h2 id="questions-title">함께 나눈 질문</h2><p class="section-explainer">대화의 주제를 읽기 편하도록 질문형으로 정리했습니다.</p>${questions}
           <details class="source-details"><summary>질문의 기록 출처</summary><ol>${sourceNotes}</ol><p>그 밖의 재독 이야기는 2절, 책 밖의 이야기는 1·2절을 참고했습니다.</p></details>
         </section>

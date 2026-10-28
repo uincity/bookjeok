@@ -61,6 +61,14 @@
 .journal-body .pdf-meta{font-size:12px;color:var(--readable);margin-top:12px}
 .journal-body .editorial-note{border-top:1px solid var(--line);padding-top:23px;margin-top:35px;font-size:14px;color:var(--readable)}
 .pdf-unavailable{color:var(--readable);margin-top:25px!important}
+.sketch-section{border-top:1px solid var(--line);padding:54px 0 70px}
+.sketch-figure{margin:28px 0 0;background:#eae6dc;padding:16px;border:1px solid #d5d1c5;border-radius:2px;box-shadow:0 8px 24px rgba(39,60,50,.07)}
+.sketch-image-wrapper{overflow:hidden;border-radius:2px;position:relative;background:#ded9cd}
+.sketch-image-wrapper img{width:100%;height:auto;display:block;object-fit:cover;transition:transform .4s ease}
+.sketch-figure:hover .sketch-image-wrapper img{transform:scale(1.012)}
+.sketch-figure figcaption{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px;padding:4px 6px 2px}
+.sketch-figure figcaption span{font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--accent-ink)}
+.sketch-figure figcaption p{font-size:14px;color:var(--readable);margin:0;line-height:1.6}
 .journal-adjacent{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:25px}
 .journal-adjacent a{font-size:13px;text-decoration:underline;text-underline-offset:4px}
 .journal-footer{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:35px max(8.1vw,32px)}
@@ -97,6 +105,9 @@
   .side-grid{gap:25px}
   .remaining-section,.next-section{padding:36px 22px 43px!important;margin:0 0 55px}
   .next-book-row{align-items:start;flex-direction:column}
+  .sketch-figure{padding:10px;margin-top:20px}
+  .sketch-figure figcaption{flex-direction:column;align-items:flex-start;gap:4px}
+  .sketch-figure figcaption p{font-size:13px}
   .journal-pdf-actions{flex-direction:column}
   .journal-pdf-actions a{width:100%}
   .journal-footer{padding:29px 22px;flex-wrap:wrap}
